@@ -9,6 +9,7 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
 interface IRequest {
 	users: IUser[]
@@ -65,6 +66,32 @@ const Users: NextPage = () => {
 		getUsers()
 	}, [])
 
+	const deleteUser = async (login: string) => {
+			try {
+				const response = await fetch('/api/users/deleteuser', {
+					method: 'POST',
+					headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({login})
+				})
+				if (response.status == 200) {
+					toast.success('Пользователь удалён!', {
+						duration: 2500,
+						position: 'top-left'
+					})
+					setTimeout(() => {
+						window.location.reload()
+					}, 2500)
+				}
+			} catch {
+				toast.error('Ошибка сервера', {
+					duration: 2500,
+					position: 'top-left'
+				})
+			}
+		}
+
 	return (
 		<section>
 			<Header />
@@ -108,7 +135,7 @@ const Users: NextPage = () => {
 													{user.name} ({user.login})
 												</h2>
 											</div>
-											<Image src={RemoveImg} alt='...' className='size-8' />
+											<Image src={RemoveImg} alt='...' className='size-8' onClick={() => deleteUser(user.login)} />
 										</div>
 									</div>
 								)
