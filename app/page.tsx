@@ -216,13 +216,13 @@ const Home = () => {
 			{isAdmin && (
 				<div className='w-full h-[66px] bg-[#00000066] flex justify-evenly items-center'>
 					<button
-						className='w-[188px] h-[46px] rounded-[12px] bg-white text-[18px] font-medium cursor-pointer'
+						className='w-[188px] h-[46px] rounded-[12px] bg-white text-[18px] font-medium cursor-pointer max-[450px]:text-[16px] max-[450px]:w-[158px]'
 						onClick={() => setIsModule(true)}
 					>
 						Добавить модуль
 					</button>
 					<button
-						className='w-[188px] h-[46px] rounded-[12px] bg-white text-[18px] font-medium cursor-pointer'
+						className='w-[188px] h-[46px] rounded-[12px] bg-white text-[18px] font-medium cursor-pointer max-[450px]:text-[16px] max-[450px]:w-[158px]'
 						onClick={() => setIsMaterial(true)}
 					>
 						Добавить материал
@@ -248,9 +248,9 @@ const Home = () => {
 							className='size-4 absolute top-5 right-5 cursor-pointer'
 							onClick={() => setIsMaterial(false)}
 						/>
-						<h2 className='text-2xl mb-8'>Добавление материала</h2>
+						<h2 className='text-2xl mb-8  max-[400px]:mt-5'>Добавление материала</h2>
 						<select
-							className='w-full h-[46px] rounded-[5px] border-[1px] border-[#00000066] px-3 cursor-pointer max-[526px]:w-[240px] max-[526px]:h-12'
+							className='w-full h-[46px] rounded-[5px] border-[1px] border-[#00000066] px-3 cursor-pointer'
 							onChange={e =>
 								setMaterialModuleName(
 									e.target.value !== 'Выберите модуль' ? e.target.value : ''
@@ -274,7 +274,7 @@ const Home = () => {
 							className='w-full h-[46px] rounded-[5px] px-3 mt-3 border-[1px] border-[#00000066]'
 						/>
 						<select
-							className='w-full h-[46px] rounded-[5px] border-[1px] border-[#00000066] px-3 cursor-pointer max-[526px]:w-[240px] max-[526px]:h-12 mt-3'
+							className='w-full h-[46px] rounded-[5px] border-[1px] border-[#00000066] px-3 cursor-pointer mt-3'
 							onChange={e =>
 								setType(
 									e.target.value !== 'Тип'
@@ -315,7 +315,7 @@ const Home = () => {
 							className='size-4 absolute top-5 right-5 cursor-pointer'
 							onClick={() => setIsModule(false)}
 						/>
-						<h2 className='text-2xl mb-8'>Добавление модуля</h2>
+						<h2 className='text-2xl mb-8 max-[400px]:mt-5'>Добавление модуля</h2>
 						<input
 							type='text'
 							placeholder='Название'
