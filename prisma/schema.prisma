@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db.db"
+}
+
+model ModuleTitle {
+  id Int @id @default(autoincrement())
+  name String @unique
+}
+
+model Module {
+  id Int @id @default(autoincrement())
+  moduleName String @unique
+  moduleTitle String
+  type String? @default("MATERIAL")
+  file String
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String 
+  login String @unique
+  password String
+  admin Boolean @default(false)
+}
