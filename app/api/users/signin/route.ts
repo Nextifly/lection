@@ -57,7 +57,7 @@ export async function POST(request: Request) {
 
 		// Генерация токена
 		const token = jwt.sign(payload, jwtSecret, {
-			expiresIn: '7d'
+			expiresIn: '20h'
 		})
 
 		return NextResponse.json(

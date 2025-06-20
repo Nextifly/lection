@@ -135,7 +135,7 @@ const Users: NextPage = () => {
 													{user.name} ({user.login})
 												</h2>
 											</div>
-											<Image src={RemoveImg} alt='...' className='size-8' onClick={() => deleteUser(user.login)} />
+											<Image src={RemoveImg} alt='...' className='size-8 cursor-pointer' onClick={() => deleteUser(user.login)} />
 										</div>
 									</div>
 								)
